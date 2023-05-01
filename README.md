@@ -4,11 +4,11 @@ This is the code for our team project. Our team, Silly Billies 007, consists of 
 # Development Environment
 
 * Visual Studio Code
-* C# 
-* MonoGame
+* Python
+* Pygame 2.3.0
 * Git / Github
 * Jira Software
 
 # Useful Websites
 
-* [MonoGame Documentation](https://docs.monogame.net/)
+* [Pygame Documentation](https://www.pygame.org/docs/)
