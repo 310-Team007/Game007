@@ -1,5 +1,11 @@
 # CSE310-Team-Project
-This is the code for our team project. Our team, Silly Billies 007, consists of four members; Kaleb Schauerhamer, Jacob Gunderson, Spencer Wigren, and Ststson Wendel.
+This is the code for our team project.
+
+### Team Members
+**Team Lead:** Kaleb Schauerhamer 
+**Project Manager:** Spencer Wigren
+**Configuration Manager:** Jacob Gunderson 
+**Quality Insurance:** Ststson Wendel
 
 # Development Environment
 
@@ -11,4 +17,6 @@ This is the code for our team project. Our team, Silly Billies 007, consists of 
 
 # Useful Websites
 
-* [Pygame Documentation](https://www.pygame.org/docs/)
+[Pygame Documentation](https://www.pygame.org/docs/)
+[Jira Page](https://applied-team07.atlassian.net/jira/software/projects/GAM/boards/1)
+[GitHub](https://github.com/310-Team007/Game007)
