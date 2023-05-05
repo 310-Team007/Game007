@@ -24,5 +24,7 @@ This is the code for our team project.
 # Useful Websites
 
 [Pygame Documentation](https://www.pygame.org/docs/)
+
 [Jira Page](https://applied-team07.atlassian.net/jira/software/projects/GAM/boards/1)
+
 [GitHub](https://github.com/310-Team007/Game007)
