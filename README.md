@@ -2,12 +2,16 @@
 This is the code for our team project.
 
 ### Team Members
+
 **Team Lead:** Kaleb Schauerhamer 
+
 **Project Manager:** Spencer Wigren
+
 **Configuration Manager:** Jacob Gunderson 
+
 **Quality Insurance:** Ststson Wendel
-=======
-This is the code for our team project. Our team, Silly Billies 007, consists of four members; Kaleb Schauerhamer, Jacob Gunderson, Spencer Wigren, and Stetson Wendel.
+
+--- 
 
 # Development Environment
 
