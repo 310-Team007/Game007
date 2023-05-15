@@ -12,7 +12,7 @@ def main():
     player_sprite = player.Player((0, 255, 255), 5, 10)
     
     
-    # see pygame tutural
+    # see Pygame tutorial
     player_pos = pygame.Vector2(c.SCREEN_WIDTH / 2, c.SCREEN_HEIGHT / 2)
     clock_speed = clock.tick(c.FPS) / 10000
     
@@ -28,7 +28,7 @@ def main():
                 running = False        
         
         
-        # drwas, gets movement and apply movement
+        # draws, gets movement and apply movement
   
         movement = pygame.key.get_pressed()
         player_sprite.move(player_pos, clock_speed, movement)

@@ -7,7 +7,7 @@ import constants as c
 Sprite = pygame.sprite.Sprite 
 
 class  Player(Sprite):
-    """Contols:
+    """Controls:
     drawing the play
     movement of the player
     

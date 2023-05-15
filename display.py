@@ -14,7 +14,7 @@ class MovingBackground():
     This class controls the movement of the background
     mapping to the movement of the player
     
-    Aurthors:
+    Authors:
         Spencer Wigren
     """
     
@@ -22,7 +22,7 @@ class MovingBackground():
         
         self.screen = pygame.display.set_mode((c.SCREEN_WIDTH, c.SCREEN_HEIGHT))
         
-        self.bg = pygame.image.load("images\Render_9.png").convert()
+        self.bg = pygame.image.load(c.BACKGROUND).convert()
         self.bg_width = self.bg.get_width()
         self.bg_rect = self.bg.get_rect()
 
@@ -37,7 +37,7 @@ class MovingBackground():
     def move_background(self, player_move):
         """
         Gets player movement (L,R,U,D)
-        applys the background moving with the input
+        applies the background moving with the input
         """
         
         # moves the images
