@@ -43,23 +43,26 @@ class  Player(Sprite):
            
         if movement[pygame.K_w]:
             player_pos.y -= 300 * clock_speed
-            self.show.move_background(0)
+            # self.show.move_background(0)
             self.draw_player(player_pos)
             
         if movement[pygame.K_s]:
             player_pos.y += 300 * clock_speed
-            self.show.move_background(0)
+            # self.show.move_background(0)
             self.draw_player(player_pos)
             
         if movement[pygame.K_a]:
             player_pos.x -= 300 * clock_speed
-            self.show.move_background(5)
+            # self.show.move_background(5)
             self.draw_player(player_pos)
             
         if movement[pygame.K_d]:
             player_pos.x += 300 * clock_speed
-            self.show.move_background(5)
+            # self.show.move_background(5)
             self.draw_player(player_pos)
+            
+        self.show.move_background(5)
+        self.draw_player(player_pos)
             
         
     def pickupGun(location):
