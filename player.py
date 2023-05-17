@@ -35,7 +35,7 @@ class  Player(Sprite):
     def draw_player(self, player_pos):
         """Draws player
         """
-        pygame.draw.circle(self.screen, "red", player_pos, 40)
+        pygame.draw.circle(self.screen, "red", player_pos, c.PLAYER_WIDTH)
 
 
     def move(self,player_pos, clock_speed, movement):     
@@ -48,16 +48,22 @@ class  Player(Sprite):
             
         if movement[pygame.K_s]:
             player_pos.y += 300 * clock_speed
+            if player_pos.y >= c.GROUND:
+                player_pos.y = c.GROUND
             # self.show.move_background(0)
             self.draw_player(player_pos)
             
         if movement[pygame.K_a]:
             player_pos.x -= 300 * clock_speed
+            if player_pos.x <= 0:
+                player_pos.x = 0
             # self.show.move_background(5)
             self.draw_player(player_pos)
             
         if movement[pygame.K_d]:
             player_pos.x += 300 * clock_speed
+            if player_pos.x >= c.SCREEN_WIDTH:
+                player_pos.x = c.SCREEN_WIDTH - 10
             # self.show.move_background(5)
             self.draw_player(player_pos)
             
