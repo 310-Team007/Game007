@@ -14,7 +14,7 @@ def main():
     
     # see Pygame tutorial
     player_pos = pygame.Vector2(c.SCREEN_WIDTH / 2, c.SCREEN_HEIGHT / 2)
-    clock_speed = clock.tick(c.FPS) / 10000
+    clock_speed = clock.tick(c.FPS) / 1000
     
     # draws player
 
