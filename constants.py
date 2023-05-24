@@ -8,5 +8,8 @@ GROUND = 450
 PLAYER_WIDTH = 40
 
 # Images
-
 BACKGROUND = "images\Jungle.png"
+
+# Colors
+BLACK = (0,0,0)
+PINK = (255,0,255)

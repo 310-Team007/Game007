@@ -1,6 +1,7 @@
 import pygame
 from pygame.sprite import Group
 import display
+import animations.player_animation as animated
 
 import constants as c
 
@@ -36,6 +37,8 @@ class  Player(Sprite):
         """Draws player
         """
         pygame.draw.circle(self.screen, "red", player_pos, c.PLAYER_WIDTH)
+
+        self.screen.blit(animated.IdlePlayer(), player_pos)
 
 
     def move(self,player_pos, clock_speed, movement):     
