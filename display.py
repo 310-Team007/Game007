@@ -1,7 +1,9 @@
 import pygame
 import math
+import player
 
 import constants as c
+import animations.player_animation as animated
 
 """
 followed this video for basic of getting the background to move
@@ -34,7 +36,7 @@ class MovingBackground():
         self.screen
         
      
-    def move_background(self, player_move):
+    def move_background(self, bg_speed):
         """
         Gets player movement (L,R,U,D)
         applies the background moving with the input
@@ -45,8 +47,15 @@ class MovingBackground():
             self.screen.blit(self.bg, (i * self.bg_width + self.scroll, 0))
             
         # scroll background
-        self.scroll -= player_move
+        self.scroll -= bg_speed
 
         # check to see if self.scroll needs to be reset
         if abs(self.scroll) > self.bg_width:
             self.scroll = 0
+
+    def draw_player(self, player_pos):
+        """Draws player
+        """
+        pygame.draw.circle(self.screen, "red", player_pos, c.PLAYER_WIDTH)
+        idleplayer = animated.AnimatePlayer(1, 0)
+        self.screen.blit(idleplayer[0], (player_pos.x - 30, player_pos.y - 32))
