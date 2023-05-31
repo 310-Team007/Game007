@@ -37,8 +37,8 @@ class  Player(Sprite):
         """Draws player
         """
         pygame.draw.circle(self.screen, "red", player_pos, c.PLAYER_WIDTH)
-
-        self.screen.blit(animated.IdlePlayer(), player_pos)
+        idleplayer = animated.AnimatePlayer(1, 0)
+        self.screen.blit(idleplayer[0], (player_pos.x - 30, player_pos.y - 33))
 
 
     def move(self,player_pos, clock_speed, movement):     

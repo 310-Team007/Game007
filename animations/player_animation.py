@@ -10,9 +10,9 @@ class SpriteSheet():
         self.sheet = image
 
     # gets a frame along a horizontal sprite sheet
-    def get_image(self, frame, width, height, scale, color):
+    def get_image(self, frame, row, width, height, scale, color):
         image = pygame.Surface((width, height)).convert_alpha()
-        image.blit(self.sheet, (0, 0), ((frame * width), 0, width, height))
+        image.blit(self.sheet, (0, 0), ((frame * width), (row * height), width, height))
         image = pygame.transform.scale(image, (width * scale, height * scale))
         image.set_colorkey(color)
 
@@ -25,15 +25,31 @@ screen = pygame.display.set_mode((c.SCREEN_WIDTH,c.SCREEN_HEIGHT))
 spritesheet_image = pygame.image.load('images/Agent_SpriteSheet_1.png').convert_alpha()
 spritesheet = SpriteSheet(spritesheet_image)
 
-def IdlePlayer():
-    idle_frame = spritesheet.get_image(0, 30, 33, 3, c.PINK)
-    return idle_frame
+# creates a list of images from any row in the spritesheet
+def AnimatePlayer(image_amount, row_number):
+    animation_list = []
+    for x in range(image_amount):
+        animation_list.append(spritesheet.get_image(x, row_number, 30, 33, 3, c.PINK))
 
+    return animation_list
 
-
-# Agent_SpriteSheet_1.png will need to be modified to be horizontal per animation cycle used
-
-# frame 0
-#idle_frame = spritesheet.get_image(0, 30, 33, 3, c.BLACK)
-# frame_1 = spritesheet.get_image(1, 30, 33, 3, c.BLACK)
-# frame_2 = spritesheet.get_image(2, 30, 33, 3, c.BLACK)
+# spritesheet AnimatedPlayer(image_amount, row_number) inputs
+# idle: (1, 0)
+# walk: (4, 1)
+# run: (7, 2)
+# jump: (5, 3)
+# crawl: (4, 4)
+# draw gun: (4, 5)
+# gun walk: (4, 6)
+# shoot: (5, 7)
+# walk shoot: (2, 8)
+# punch: (4, 9)
+# kick: (4, 10)
+# hurt: (4, 11)
+# damage: (2, 12)
+# fall: (3, 13)
+# push: (4, 14)
+# death: (5, 15)
+# swim: (4, 16)
+# tread water: (4, 17)
+# climb: (7, 18)
