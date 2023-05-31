@@ -32,13 +32,14 @@ class  Player(Sprite):
         self.screen = pygame.display.set_mode((c.SCREEN_WIDTH, c.SCREEN_HEIGHT))
         self.show = display.MovingBackground()  
 
+
     def draw_player(self, player_pos):
         """Draws player
         """
         pygame.draw.circle(self.screen, "red", player_pos, c.PLAYER_WIDTH)
 
 
-    def move(self,player_pos, clock_speed, movement):     
+    def move(self, player_pos, clock_speed, movement):     
         self.draw_player(player_pos)
            
         if movement[pygame.K_w]:

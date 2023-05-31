@@ -10,3 +10,8 @@ PLAYER_WIDTH = 40
 # Images
 
 BACKGROUND = "images\Jungle.png"
+
+# Physics
+
+# Faster gravity increase number, slower decrease number
+GRAVITY = 100

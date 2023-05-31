@@ -3,6 +3,7 @@ import pygame
 import constants as c
 import display
 import player
+import physics
 
 
 def main():
@@ -15,6 +16,8 @@ def main():
     # see Pygame tutorial
     player_pos = pygame.Vector2(c.SCREEN_WIDTH / 2, c.SCREEN_HEIGHT / 2)
     clock_speed = clock.tick(c.FPS) / 1000
+    
+    gravity = physics.Physics()
     
     # draws player
 
@@ -32,6 +35,7 @@ def main():
   
         movement = pygame.key.get_pressed()
         player_sprite.move(player_pos, clock_speed, movement)
+        gravity.physics(player_pos)
         
         
         
