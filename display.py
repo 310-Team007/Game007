@@ -53,9 +53,9 @@ class MovingBackground():
         if abs(self.scroll) > self.bg_width:
             self.scroll = 0
 
-    def draw_player(self, player_pos):
+    def draw_player(self, player_pos, frame):
         """Draws player
         """
         pygame.draw.circle(self.screen, "red", player_pos, c.PLAYER_WIDTH)
-        idleplayer = animated.AnimatePlayer(1, 0)
-        self.screen.blit(idleplayer[0], (player_pos.x - 30, player_pos.y - 32))
+        idleplayer = animated.GetSpriteSeries(4, 1)
+        self.screen.blit(idleplayer[frame], (player_pos.x - 30, player_pos.y - 32))

@@ -26,14 +26,14 @@ spritesheet_image = pygame.image.load('images/Agent_SpriteSheet_1.png').convert_
 spritesheet = SpriteSheet(spritesheet_image)
 
 # creates a list of images from any row in the spritesheet
-def AnimatePlayer(image_amount, row_number):
+def GetSpriteSeries(image_amount, row_number):
     animation_list = []
     for x in range(image_amount):
         animation_list.append(spritesheet.get_image(x, row_number, 30, 32, 3, c.PINK))
 
     return animation_list
 
-# spritesheet AnimatedPlayer(image_amount, row_number) inputs
+# spritesheet GetSpriteSeries(image_amount, row_number) inputs
 # idle: (1, 0)
 # walk: (4, 1)
 # run: (7, 2)
@@ -53,3 +53,16 @@ def AnimatePlayer(image_amount, row_number):
 # swim: (4, 16)
 # tread water: (4, 17)
 # climb: (7, 18)
+
+animation_cooldown = 200
+
+# itterateas through a series of images to create animation
+def ItterateTimedFrames(current_time, last_update, frame_number, animated_list_length):
+    if current_time - last_update >= animation_cooldown:
+        frame_number += 1
+        last_update = current_time
+        if frame_number >= animated_list_length:
+            frame_number = 0
+
+    return (frame_number, current_time)
+
