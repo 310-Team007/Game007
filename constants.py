@@ -11,10 +11,12 @@ PLAYER_WIDTH = 40
 # Obstacles
 OBSTACLE_WIDITH = 20
 # Images
-
 BACKGROUND = "images\Jungle.png"
+
+# Colors
+PINK = (255,0,255)
 
 # Physics
 
 # Faster gravity increase number, slower decrease number
-GRAVITY = 100
+GRAVITY = 10
