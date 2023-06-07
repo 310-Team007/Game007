@@ -57,5 +57,5 @@ class MovingBackground():
         """Draws player
         """
         pygame.draw.circle(self.screen, "red", player_pos, c.PLAYER_WIDTH)
-        idleplayer = animated.GetSpriteSeries(4, 1)
-        self.screen.blit(idleplayer[frame], (player_pos.x - 30, player_pos.y - 32))
+        idleplayer = animated.GetSpriteSeries(4, 4)
+        self.screen.blit(idleplayer[frame], (player_pos.x - 32, player_pos.y - 32))

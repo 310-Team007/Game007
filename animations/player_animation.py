@@ -20,7 +20,7 @@ class SpriteSheet():
         
 
 # Agent_SpriteSheet_1 size: 320 X 620px
-# frame size: 30 X 32px
+# frame size: 28 X 32px
 screen = pygame.display.set_mode((c.SCREEN_WIDTH,c.SCREEN_HEIGHT))
 spritesheet_image = pygame.image.load('images/Agent_SpriteSheet_1.png').convert_alpha()
 spritesheet = SpriteSheet(spritesheet_image)
@@ -29,7 +29,7 @@ spritesheet = SpriteSheet(spritesheet_image)
 def GetSpriteSeries(image_amount, row_number):
     animation_list = []
     for x in range(image_amount):
-        animation_list.append(spritesheet.get_image(x, row_number, 30, 32, 3, c.PINK))
+        animation_list.append(spritesheet.get_image(x, row_number, 32, 32, 3, c.PINK))
 
     return animation_list
 
