@@ -7,6 +7,9 @@ import obstacle
 import physics
 import animations.player_animation as animate
 
+#for animation changes
+image_amount = 4
+row_number = 1
 
 def main():
     pygame.init()
@@ -44,21 +47,17 @@ def main():
         movement = pygame.key.get_pressed()
         player_pos = player_sprite.move(player_pos, clock_speed, movement)
         gravity.physics(player_pos)
-        show.draw_player(player_pos, frame)
+        show.draw_player(player_pos, frame, image_amount, row_number)
         
-        # for animations
-        animated_list_length = 4
 
+        # for animations
         current_time = pygame.time.get_ticks()
         if current_time - last_update >= animate.animation_cooldown:
             frame += 1
             last_update = current_time
-            if frame >= animated_list_length:
+            if frame >= image_amount:
                 frame = 0
-
-        # animate_tuple = animate.ItterateTimedFrames(current_time, last_update, frame, animated_list_length)  
-        # last_update = animate_tuple[1]
-        # frame = animate_tuple[0]
+        # frame, last_update = animate.ItterateTimedFrames(current_time, last_update, frame, image_amount)  
         
                 
         pygame.display.update()
