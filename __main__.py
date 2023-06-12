@@ -7,6 +7,7 @@ import player
 import obstacle
 import physics
 import animations.player_animation as animate
+import ui
 
 #for animation changes
 image_amount = 4
@@ -29,6 +30,8 @@ def main():
     clock_speed = clock.tick(c.FPS) / 1000
     
     gravity = physics.Physics()
+    
+    user_inter = ui.UI(player_sprite)
     
     # connects to database and var to modify database
     conn = sqlite3.connect("database/game_data.db")
@@ -59,6 +62,7 @@ def main():
         current_time = pygame.time.get_ticks()
         frame, last_update = animate.ItterateTimedFrames(current_time, last_update, frame, image_amount)
         
+        user_inter.draw_ui()
                 
         pygame.display.update()
 
