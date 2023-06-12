@@ -35,7 +35,7 @@ def GetSpriteSeries(image_amount, row_number):
 
 def ShowSprite(self, player_pos, frame, image_amount = 4, row_number = 1):
     idleplayer = GetSpriteSeries(image_amount, row_number)
-    
+
     # prevents out of range error
     if(frame > len(idleplayer) - 1):
         frame = 0
@@ -62,15 +62,15 @@ def ShowSprite(self, player_pos, frame, image_amount = 4, row_number = 1):
 # tread water: (4, 17)
 # climb: (7, 18)
 
-animation_cooldown = 200
+animation_cooldown = 175
 
 # itterateas through a series of images to create animation
-def ItterateTimedFrames(current_time, last_update, frame_number, animated_list_length):
+def ItterateTimedFrames(current_time, last_update, frame, image_amount):
     if current_time - last_update >= animation_cooldown:
-        frame_number += 1
+        frame += 1
         last_update = current_time
-        if frame_number >= animated_list_length:
-            frame_number = 0
+        if frame >= image_amount:
+            frame = 0
 
-    return (frame_number, current_time)
+    return frame, last_update
 
