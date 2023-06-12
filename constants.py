@@ -20,3 +20,10 @@ PINK = (255,0,255)
 
 # Faster gravity increase number, slower decrease number
 GRAVITY = 10
+
+# UI cords
+HEALTH_X = 50
+HEALTH_Y = 0
+
+SCORE_X = SCREEN_WIDTH - 200
+SCORE_Y = 0
