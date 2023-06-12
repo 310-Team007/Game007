@@ -16,7 +16,7 @@ This is the code for our team project.
 # Development Environment
 
 * Visual Studio Code
-* Python
+* Python 3.11.3
 * Pygame 2.3.0
 * Git / Github
 * Jira Software

@@ -52,12 +52,7 @@ def main():
 
         # for animations
         current_time = pygame.time.get_ticks()
-        if current_time - last_update >= animate.animation_cooldown:
-            frame += 1
-            last_update = current_time
-            if frame >= image_amount:
-                frame = 0
-        # frame, last_update = animate.ItterateTimedFrames(current_time, last_update, frame, image_amount)  
+        frame, last_update = animate.ItterateTimedFrames(current_time, last_update, frame, image_amount)
         
                 
         pygame.display.update()
