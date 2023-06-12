@@ -1,4 +1,5 @@
 import pygame
+import sqlite3
 
 import constants as c
 import display
@@ -29,6 +30,10 @@ def main():
     
     gravity = physics.Physics()
     
+    # connects to database and var to modify database
+    conn = sqlite3.connect("database/game_data.db")
+    mod_db = conn.cursor()
+    
     # draws player
 
     running = True
@@ -57,5 +62,10 @@ def main():
                 
         pygame.display.update()
 
+    # save date to db
+    conn.commit()
+    # close connection to db
+    conn.close()
+    
 if __name__ == "__main__":
     main()
