@@ -1,6 +1,7 @@
 import pygame
 from pygame.sprite import Group
-# import display
+import __main__
+#import display
 
 import constants as c
 
@@ -41,11 +42,19 @@ class  Player(Sprite):
 
     def move(self,player_pos, clock_speed, movement):     
         # self.draw_player(player_pos)
+
+        # walking
+        __main__.image_amount = 4
+        __main__.row_number = 1
            
         if movement[pygame.K_w]:
             player_pos.y -= 300 * clock_speed
             # self.show.move_background(0)
             # self.draw_player(player_pos)
+
+            # jumping
+            __main__.image_amount = 5
+            __main__.row_number = 3
             
         if movement[pygame.K_s]:
             player_pos.y += 300 * clock_speed
@@ -53,6 +62,10 @@ class  Player(Sprite):
                 player_pos.y = c.GROUND
             # self.show.move_background(0)
             # self.draw_player(player_pos)
+
+            # crawling
+            __main__.image_amount = 4
+            __main__.row_number = 4
             
         if movement[pygame.K_a]:
             player_pos.x -= 300 * clock_speed
@@ -60,6 +73,10 @@ class  Player(Sprite):
                 player_pos.x = 0
             # self.show.move_background(5)
             # self.draw_player(player_pos)
+
+            # idle/standing still
+            __main__.image_amount = 1
+            __main__.row_number = 0
             
         if movement[pygame.K_d]:
             player_pos.x += 300 * clock_speed
@@ -67,6 +84,10 @@ class  Player(Sprite):
                 player_pos.x = c.SCREEN_WIDTH - 10
             # self.show.move_background(5)
             # self.draw_player(player_pos)
+
+            # running
+            __main__.image_amount = 7
+            __main__.row_number = 2
             
         # self.show.move_background(5)
         # self.draw_player(player_pos)
