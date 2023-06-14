@@ -70,5 +70,3 @@ class UI():
         
         score_img = self.text_font.render(score_text, True, self.text_color)
         self.screen.blit(score_img, (c.SCORE_X, c.SCORE_Y))
-        
-    

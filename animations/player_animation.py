@@ -73,4 +73,3 @@ def ItterateTimedFrames(current_time, last_update, frame, image_amount):
             frame = 0
 
     return frame, last_update
-
