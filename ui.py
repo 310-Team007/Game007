@@ -14,7 +14,7 @@ class UI():
          health_ui: renders the health the player has
          score_ui: renders the score of the player
     
-    Authors: Spencer Wigren
+    Authors: Spencer Wigren, Kaleb Schauerhamer
     """
     def __init__(self, player_info):
         # self.text = "Hearts"
@@ -57,7 +57,20 @@ class UI():
         # set the string for dispaly
         # TODO add hearts images for each health the player has
         health_text = "Health: " + health
-        
+
+        # health hearts
+        # heart_img = pygame.image.load('images/pixel-heart.png')
+        # heart_img = pygame.transform.scale(heart_img, (35, 35))
+
+        # counter = 0
+        # for x in range(self.player_health.health):
+        #     self.screen.blit(heart_img, (c.HEALTH_X, c.HEALTH_Y))
+        #     c.HEALTH_X += 35
+        #     if counter >= 5:
+        #         c.HEALTH_Y += 35
+        #         c.HEALTH_X = c.HEALTH_X - (35 * 5)
+        #         counter = 0
+
         health_img = self.text_font.render(health_text, True, self.text_color)
         self.screen.blit(health_img, (c.HEALTH_X, c.HEALTH_Y))
         

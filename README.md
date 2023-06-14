@@ -39,3 +39,5 @@ This is the code for our team project.
 [Enemy Soldiers](https://craftpix.net/freebies/free-soldier-sprite-sheets-pixel-art/)
 
 [blocks and obstacles](https://opengameart.org/content/metal-blocks-and-misc-elements)
+
+[Health Hearts by Ben Bushnell](https://pixabay.com/users/benbushnell-5879465/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2779422)
