@@ -6,7 +6,7 @@ import display
 import player
 import obstacle
 import physics
-import animations.player_animation as animate
+import player_animation as animate
 import ui
 
 #for animation changes
@@ -17,7 +17,7 @@ def main():
     pygame.init()
     clock = pygame.time.Clock()
     show = display.MovingBackground()
-    player_sprite = player.Player((0, 255, 255), 5, 10)
+    player_sprite = player.Player((0, 255, 255), c.PLAYER_WIDTH, c.PLAYER_HEIGHT)
     obstacle_sprite = obstacle.Obstacle((150, 75, 0), 5, 5)
     obstacle_sprite.draw_obstacle(40)
 

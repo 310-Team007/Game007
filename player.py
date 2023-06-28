@@ -38,8 +38,8 @@ class  Player(Sprite):
     def move(self,player_pos, clock_speed, movement):     
         # self.draw_player(player_pos)
 
-        # default hitbox (change to use variables later ([width, height]))
-        self.image = pygame.Surface([5, 10])
+        # default hitbox
+        self.image = pygame.Surface([c.PLAYER_WIDTH, c.PLAYER_HEIGHT])
 
         # walking
         __main__.image_amount = 4
@@ -61,8 +61,8 @@ class  Player(Sprite):
             # self.show.move_background(0)
             # self.draw_player(player_pos)
 
-            # Modify crawl hitbox (change to use variables later ([height, width]))
-            self.image = pygame.Surface([10, 5])
+            # Modify crawl hitbox
+            self.image = pygame.Surface([c.PLAYER_HEIGHT, c.PLAYER_WIDTH])
 
             # crawling
             __main__.image_amount = 4
