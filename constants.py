@@ -5,7 +5,7 @@ FPS = 60
 GROUND = 450
 BG_SPEED = 5
 
-# Playyer
+# Player
 PLAYER_WIDTH = 40
 
 # Obstacles

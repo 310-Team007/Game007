@@ -19,7 +19,7 @@ class UI():
     def __init__(self, player_info):
         # self.text = "Hearts"
         self.text_font = pygame.font.SysFont("Arial", 30)
-        self.text_color = (0, 0, 0) # RGB value
+        self.text_color = (255, 255, 255) # RGB value
         
         # TODO may need to create this in main
         # TODO along with player class self.screen move to main
@@ -68,7 +68,7 @@ class UI():
 
         c.HEALTH_X = 50
 
-        # health Text display
+        # health_text display
         # health_img = self.text_font.render(health_text, True, self.text_color)
         # self.screen.blit(health_img, (c.HEALTH_X, c.HEALTH_Y))
         
