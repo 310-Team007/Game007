@@ -18,6 +18,7 @@ class MovingBackground():
     
     Authors:
         Spencer Wigren
+        Jacob Gunderson
     """
     
     def __init__(self):
@@ -56,7 +57,7 @@ class MovingBackground():
     def draw_player(self, player_pos, frame, image_amount = 4, row_number = 1):
         """Draws player
         """
-        pygame.draw.circle(self.screen, "red", player_pos, c.PLAYER_WIDTH)
+        # pygame.draw.circle(self.screen, "red", player_pos, c.PLAYER_WIDTH)
 
         # Shows player sprite & allows animation
         animated.ShowSprite(self, player_pos, frame, image_amount, row_number)

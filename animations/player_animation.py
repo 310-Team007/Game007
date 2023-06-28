@@ -9,7 +9,7 @@ class SpriteSheet():
     def __init__(self, image):
         self.sheet = image
 
-    # gets a frame along a horizontal sprite sheet
+    # gets a frame along a sprite sheet
     def get_image(self, frame, row, width, height, scale, color):
         image = pygame.Surface((width, height)).convert_alpha()
         image.blit(self.sheet, (0, 0), ((frame * width), (row * height), width, height))
@@ -20,7 +20,7 @@ class SpriteSheet():
         
 
 # Agent_SpriteSheet_1 size: 320 X 620px
-# frame size: 28 X 32px
+# frame size: 32 X 32px
 screen = pygame.display.set_mode((c.SCREEN_WIDTH,c.SCREEN_HEIGHT))
 spritesheet_image = pygame.image.load('images/Agent_SpriteSheet_1.png').convert_alpha()
 spritesheet = SpriteSheet(spritesheet_image)
