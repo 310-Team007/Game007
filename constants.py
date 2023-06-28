@@ -6,10 +6,13 @@ GROUND = 450
 BG_SPEED = 5
 
 # Player
-PLAYER_WIDTH = 40
+PLAYER_WIDTH = 16
+PLAYER_HEIGHT = 30
+PLAYER_SCALE = 3
 
 # Obstacles
 OBSTACLE_WIDITH = 20
+
 # Images
 BACKGROUND = "images\Jungle.png"
 
