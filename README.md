@@ -9,8 +9,6 @@ This is the code for our team project.
 
 **Configuration Manager:** Jacob Gunderson 
 
-**Quality Insurance:** Ststson Wendel
-
 --- 
 
 # Development Environment
