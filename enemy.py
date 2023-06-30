@@ -15,6 +15,15 @@ class enemy(Player):
     enemy_image_sniper = pygame.image.load('images/craftpix-soldiers/PSD/Soldier_3_Spritelist.psd').convert_alpha()
     enemy_image_boss = pygame.image.load('images/craftpix-soldiers/PSD/Soldier_2_Spritelist.psd').convert_alpha()
 
-    spritesheet = SpriteSheet(enemy_image_grunt)
-    spritesheet = SpriteSheet(enemy_image_sniper)
-    spritesheet = SpriteSheet(enemy_image_boss)
+    spritesheet_grunt = SpriteSheet(enemy_image_grunt)
+    spritesheet_sniper = SpriteSheet(enemy_image_sniper)
+    spritesheet_boss = SpriteSheet(enemy_image_boss)
+
+    def grunt():
+        pass
+
+    def sniper():
+        pass
+
+    def boss():
+        pass
