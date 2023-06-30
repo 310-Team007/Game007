@@ -26,10 +26,10 @@ spritesheet_image = pygame.image.load('images/Agent_SpriteSheet_1.png').convert_
 spritesheet = SpriteSheet(spritesheet_image)
 
 # creates a list of images from any row in the spritesheet
-def GetSpriteSeries(image_amount, row_number, spritesheet = spritesheet):
+def GetSpriteSeries(image_amount, row_number, spritesheet = spritesheet, sprite_width = 32, sprite_height = 32):
     animation_list = []
     for x in range(image_amount):
-        animation_list.append(spritesheet.get_image(x, row_number, 32, 32, c.PLAYER_SCALE, c.PINK))
+        animation_list.append(spritesheet.get_image(x, row_number, sprite_width, sprite_height, c.PLAYER_SCALE, c.PINK))
 
     return animation_list
 
