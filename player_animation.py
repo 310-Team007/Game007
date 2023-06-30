@@ -26,7 +26,7 @@ spritesheet_image = pygame.image.load('images/Agent_SpriteSheet_1.png').convert_
 spritesheet = SpriteSheet(spritesheet_image)
 
 # creates a list of images from any row in the spritesheet
-def GetSpriteSeries(image_amount, row_number):
+def GetSpriteSeries(image_amount, row_number, spritesheet = spritesheet):
     animation_list = []
     for x in range(image_amount):
         animation_list.append(spritesheet.get_image(x, row_number, 32, 32, c.PLAYER_SCALE, c.PINK))
@@ -39,7 +39,7 @@ def ShowSprite(self, player_pos, frame, image_amount = 4, row_number = 1):
     # prevents out of range error
     if(frame > len(idleplayer) - 1):
         frame = 0
-    self.screen.blit(idleplayer[frame], (player_pos.x - 32, player_pos.y - 32))
+    self.screen.blit(idleplayer[frame], (player_pos.x - (32 * c.PLAYER_SCALE), player_pos.y - (32 * c.PLAYER_SCALE)))
 
 # Agent spritesheet GetSpriteSeries(image_amount, row_number) inputs
 # idle: (1, 0)
