@@ -66,6 +66,15 @@ def main():
                 
         pygame.display.update()
 
+    # gets player health at end of game
+    health = player_sprite.health
+    # gets player score at end of game
+    score = user_inter.score
+    # puts player name, health, and score into db
+    # TODO have player make name
+    mod_db.execute(f"INSERT INTO player VALUES ('Bob', {health}, {score})")
+
+
     # save date to db
     conn.commit()
     # close connection to db
