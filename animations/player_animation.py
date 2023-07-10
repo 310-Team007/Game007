@@ -39,7 +39,7 @@ def ShowSprite(self, player_pos, frame, image_amount = 4, row_number = 1):
     # prevents out of range error
     if(frame > len(idleplayer) - 1):
         frame = 0
-    self.screen.blit(idleplayer[frame], (player_pos.x - 32, player_pos.y - 32))
+    self.screen.blit(idleplayer[frame], (player_pos.x - c.PLAYER_HEIGHT, player_pos.y - c.PLAYER_HEIGHT * 3))
 
 # spritesheet GetSpriteSeries(image_amount, row_number) inputs
 # idle: (1, 0)

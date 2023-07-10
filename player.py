@@ -40,7 +40,7 @@ class  Player(Sprite):
         pygame.draw.circle(self.screen, "red", player_pos, c.PLAYER_WIDTH)
 
 
-    def move(self,player_pos, clock_speed, movement):     
+    def move(self, player_pos, clock_speed, movement):     
         # self.draw_player(player_pos)
 
         # walking
@@ -92,8 +92,7 @@ class  Player(Sprite):
         # self.show.move_background(5)
         # self.draw_player(player_pos)
 
-        return player_pos
-            
+        return player_pos           
         
     def pickupGun(location):
         pass
