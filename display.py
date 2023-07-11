@@ -3,7 +3,7 @@ import math
 import player
 
 import constants as c
-import animations.player_animation as animated
+import player_animation as animated
 
 """
 followed this video for basic of getting the background to move
@@ -18,6 +18,7 @@ class MovingBackground():
     
     Authors:
         Spencer Wigren
+        Jacob Gunderson
     """
     
     def __init__(self):

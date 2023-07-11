@@ -15,6 +15,7 @@ class  Player(Sprite):
     Authors:
         Jacob Gunderson
         Spencer Wigren
+        Kaleb Schauerhamer
     """
     def __init__(self, color, width, height):
         self.location = (0,0)
@@ -34,14 +35,11 @@ class  Player(Sprite):
         # self.show = display.MovingBackground()  
 
 
-    def draw_player(self, player_pos):
-        """Draws player
-        """
-        pygame.draw.circle(self.screen, "red", player_pos, c.PLAYER_WIDTH)
-
-
-    def move(self, player_pos, clock_speed, movement):     
+    def move(self,player_pos, clock_speed, movement):     
         # self.draw_player(player_pos)
+
+        # default hitbox
+        self.image = pygame.Surface([c.PLAYER_WIDTH, c.PLAYER_HEIGHT])
 
         # walking
         __main__.image_amount = 4
@@ -62,6 +60,9 @@ class  Player(Sprite):
                 player_pos.y = c.GROUND
             # self.show.move_background(0)
             # self.draw_player(player_pos)
+
+            # Modify crawl hitbox
+            self.image = pygame.Surface([c.PLAYER_HEIGHT, c.PLAYER_WIDTH])
 
             # crawling
             __main__.image_amount = 4

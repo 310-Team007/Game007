@@ -6,7 +6,7 @@ import display
 import player
 import obstacle as Obstacle
 import physics
-import animations.player_animation as animate
+import player_animation as animate
 import ui
 
 #for animation changes
@@ -17,7 +17,7 @@ def main():
     pygame.init()
     clock = pygame.time.Clock()
     show = display.MovingBackground()
-    player_sprite = player.Player((0, 255, 255), 5, 10)
+    player_sprite = player.Player((0, 255, 255), c.PLAYER_WIDTH, c.PLAYER_HEIGHT)
     obstacle_sprite = Obstacle.Obstacle(c.OBSTACLE_WIDTH, c.OBSTACLE_HEIGHT, 3)
     obstacles = []
     obstacle_height_index = 0
@@ -83,6 +83,15 @@ def main():
         user_inter.draw_ui()
                 
         pygame.display.update()
+
+    # gets player health at end of game
+    health = player_sprite.health
+    # gets player score at end of game
+    score = user_inter.score
+    # puts player name, health, and score into db
+    # TODO have player make name
+    mod_db.execute(f"INSERT INTO player VALUES ('Bob', {health}, {score})")
+
 
     # save date to db
     conn.commit()

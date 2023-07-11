@@ -9,7 +9,7 @@ class SpriteSheet():
     def __init__(self, image):
         self.sheet = image
 
-    # gets a frame along a horizontal sprite sheet
+    # gets a frame along a sprite sheet
     def get_image(self, frame, row, width, height, scale, color):
         image = pygame.Surface((width, height)).convert_alpha()
         image.blit(self.sheet, (0, 0), ((frame * width), (row * height), width, height))
@@ -20,16 +20,16 @@ class SpriteSheet():
         
 
 # Agent_SpriteSheet_1 size: 320 X 620px
-# frame size: 28 X 32px
+# frame size: 32 X 32px
 screen = pygame.display.set_mode((c.SCREEN_WIDTH,c.SCREEN_HEIGHT))
 spritesheet_image = pygame.image.load('images/Agent_SpriteSheet_1.png').convert_alpha()
 spritesheet = SpriteSheet(spritesheet_image)
 
 # creates a list of images from any row in the spritesheet
-def GetSpriteSeries(image_amount, row_number):
+def GetSpriteSeries(image_amount, row_number, spritesheet = spritesheet, sprite_width = 32, sprite_height = 32):
     animation_list = []
     for x in range(image_amount):
-        animation_list.append(spritesheet.get_image(x, row_number, 32, 32, 3, c.PINK))
+        animation_list.append(spritesheet.get_image(x, row_number, sprite_width, sprite_height, c.PLAYER_SCALE, c.PINK))
 
     return animation_list
 
@@ -39,9 +39,9 @@ def ShowSprite(self, player_pos, frame, image_amount = 4, row_number = 1):
     # prevents out of range error
     if(frame > len(idleplayer) - 1):
         frame = 0
-    self.screen.blit(idleplayer[frame], (player_pos.x - c.PLAYER_HEIGHT, player_pos.y - c.PLAYER_HEIGHT * 3))
+    self.screen.blit(idleplayer[frame], (player_pos.x - (32 * c.PLAYER_SCALE), player_pos.y - (32 * c.PLAYER_SCALE)))
 
-# spritesheet GetSpriteSeries(image_amount, row_number) inputs
+# Agent spritesheet GetSpriteSeries(image_amount, row_number) inputs
 # idle: (1, 0)
 # walk: (4, 1)
 # run: (7, 2)
