@@ -99,4 +99,9 @@ class  Player(Sprite):
         pass
 
     def useGun():
+
+
+        # walk shoot
+        __main__.image_amount = 2
+        __main__.row_number = 8
         pass

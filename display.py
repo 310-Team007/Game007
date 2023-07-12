@@ -55,10 +55,6 @@ class MovingBackground():
             self.scroll = 0
 
     def draw_player(self, player_pos, frame, image_amount = 4, row_number = 1):
-        """Draws player
-        """
-        # pygame.draw.circle(self.screen, "red", player_pos, c.PLAYER_WIDTH)
-
         # Shows player sprite & allows animation
         animated.ShowSprite(self, player_pos, frame, image_amount, row_number)
 
@@ -69,3 +65,7 @@ class MovingBackground():
         # obstacle.blit(obstacle, (1, 1), (1, 1, 16, 16))
 
         pygame.draw.rect(self.screen, c.PINK, obstacle)
+
+
+    def DrawEnemy(self, enemy_pos, frame, image_amount, row_number, spritesheet, sprite_width, sprite_height, scale):
+        animated.ShowSprite(self, enemy_pos, frame, image_amount, row_number, spritesheet, sprite_width, sprite_height, scale)

@@ -18,6 +18,7 @@ This is the code for our team project.
 * Pygame 2.3.0
 * Git / Github
 * Jira Software
+* Krita 5.1.5
 
 # Useful Websites
 

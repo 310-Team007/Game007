@@ -8,6 +8,7 @@ import obstacle as Obstacle
 import physics
 import player_animation as animate
 import ui
+import enemy
 
 #for animation changes
 image_amount = 4
@@ -25,9 +26,13 @@ def main():
     # for Animations
     last_update = pygame.time.get_ticks()
     frame = 0
+    enemy_frame = 0
+    enemy_image_amount = 7
+    enemy_row_number = 1
     
     # see Pygame tutorial
     player_pos = pygame.Vector2(c.SCREEN_WIDTH / 2, c.SCREEN_HEIGHT / 2)
+    enemy_pos = pygame.Vector2(c.SCREEN_WIDTH, c.GROUND)
     clock_speed = clock.tick(c.FPS) / 1000
     
     gravity = physics.Physics()
@@ -124,6 +129,9 @@ def main():
         # Draw player
         show.draw_player(player_pos, frame, image_amount, row_number)
         
+        # Enemy stuff
+        show.DrawEnemy(enemy_pos, enemy_frame, enemy_image_amount, enemy_row_number, enemy.spritesheet_grunt, sprite_width = 126, sprite_height = 126, scale = 1)
+
         # for animations
         current_time = pygame.time.get_ticks()
         frame, last_update = animate.ItterateTimedFrames(current_time, last_update, frame, image_amount)
