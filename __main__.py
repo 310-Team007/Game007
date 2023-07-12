@@ -39,7 +39,53 @@ def main():
     mod_db = conn.cursor()
     
     # draws player
-
+    
+    # draws a screen to get player name input 
+    user_input = "" 
+    start_screen = pygame.display.set_mode((c.SCREEN_WIDTH, c.SCREEN_HEIGHT))
+    text_font = pygame.font.SysFont("Arial", 50)
+    game_name_font = pygame.font.SysFont("Arial", 150, bold=True)
+    
+    
+    running_input = True
+    while running_input:
+        clock.tick(c.FPS)
+        
+        for event in pygame.event.get():
+            # Handles when use wants to start the game
+            # if the quit button is press or the return key is press the game will start
+            if event.type == pygame.QUIT:
+              running_input = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    running_input = False
+                
+            # gets user user input for username
+            if event.type == pygame.KEYDOWN:
+                # when the backspace is press
+                # remove the last index in the str
+                if event.key == pygame.K_BACKSPACE:
+                    user_input = user_input[:-1]
+                else:
+                    user_input += event.unicode
+        
+        # rendering back ground         
+        show.display_background()
+        show.move_background(c.BG_SPEED)
+        
+        # setting strings to render 
+        # gettig the color of the string
+        user_hint = text_font.render("Enter User Name: ", True, (0,0,0))
+        user_name = text_font.render(user_input, True, (0,0,0))
+        game_name = game_name_font.render("GAME 007", True, (0,0,0))
+        
+        # rendering the strings on the screen
+        start_screen.blit(user_hint, (c.SCREEN_WIDTH/2 + 50, c.SCREEN_HEIGHT/2 + 100))
+        start_screen.blit(user_name, (c.SCREEN_WIDTH/2 + 400, c.SCREEN_HEIGHT/2 + 100))
+        start_screen.blit(game_name, ((c.SCREEN_WIDTH/2) - 50, (c.SCREEN_HEIGHT/2) - 100))
+         
+        pygame.display.update()
+     
     running = True
     while running:
         clock.tick(c.FPS)
@@ -47,9 +93,10 @@ def main():
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                running = False        
-        
-        # Show and move background
+                running = False  
+                
+                      
+        # draws, gets movement and apply movement
         show.display_background()
         show.move_background(c.BG_SPEED)
 
@@ -84,19 +131,30 @@ def main():
                 
         pygame.display.update()
 
-    # gets player health at end of game
-    health = player_sprite.health
-    # gets player score at end of game
-    score = user_inter.score
-    # puts player name, health, and score into db
-    # TODO have player make name
-    mod_db.execute(f"INSERT INTO player VALUES ('Bob', {health}, {score})")
 
+    # gets player health at end of game
+    player_health = player_sprite.health
+    
+    # gets player score at end of game
+    player_score = user_inter.score
+    
+    # get player name
+    name_of_player = str(user_input)
+    
+    # combining all values into a tuple
+    player_stats = (name_of_player, player_health, player_score)
+    
+    # sql to put values into db
+    sql = """INSERT INTO player(player_name, health, score)
+            VALUES (?, ?, ?);"""      
+    
+    mod_db.execute(sql, player_stats)
 
     # save date to db
     conn.commit()
     # close connection to db
     conn.close()
+    
     
 if __name__ == "__main__":
     main()
