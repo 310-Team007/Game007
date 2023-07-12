@@ -93,8 +93,7 @@ class  Player(Sprite):
         # self.show.move_background(5)
         # self.draw_player(player_pos)
 
-        return player_pos
-            
+        return player_pos           
         
     def pickupGun(location):
         pass
