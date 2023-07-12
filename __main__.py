@@ -17,7 +17,7 @@ def main():
     pygame.init()
     clock = pygame.time.Clock()
     show = display.MovingBackground()
-    player_sprite = player.Player((0, 255, 255), c.PLAYER_WIDTH, c.PLAYER_HEIGHT)
+    player_sprite = player.Player(c.PLAYER_WIDTH, c.PLAYER_HEIGHT)
     obstacle_sprite = Obstacle.Obstacle(c.OBSTACLE_WIDTH, c.OBSTACLE_HEIGHT, 3)
     obstacles = []
     obstacle_height_index = 0
@@ -27,7 +27,7 @@ def main():
     frame = 0
     
     # see Pygame tutorial
-    player_pos = pygame.Vector2(c.SCREEN_WIDTH / 2, c.SCREEN_HEIGHT / 2)
+    player_pos = pygame.Vector2(c.SCREEN_WIDTH / 2, c.GROUND)
     clock_speed = clock.tick(c.FPS) / 1000
     
     gravity = physics.Physics()

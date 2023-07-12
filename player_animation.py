@@ -33,7 +33,7 @@ def GetSpriteSeries(image_amount, row_number, spritesheet = spritesheet, sprite_
 
     return animation_list
 
-def ShowSprite(self, player_pos, frame, image_amount = 4, row_number = 1):
+def ShowSprite(self, player_pos, frame, image_amount = 4, row_number = 1, spritesheet = spritesheet):
     idleplayer = GetSpriteSeries(image_amount, row_number)
 
     # prevents out of range error

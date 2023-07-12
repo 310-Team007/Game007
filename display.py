@@ -67,5 +67,6 @@ class MovingBackground():
         obstacleImage = pygame.image.load("images/metal_blocks.png").convert_alpha()
         # obstacleSheet = animated.spritesheet(obstacleImage)
         # obstacle.blit(obstacle, (1, 1), (1, 1, 16, 16))
-
+        spritesheet = animated.SpriteSheet(obstacleImage)
+        animated.ShowSprite(self, obstacle.rect, 0, 1, 0, spritesheet)
         pygame.draw.rect(self.screen, c.PINK, obstacle)

@@ -30,12 +30,19 @@ class Obstacle(Sprite):
 
     def stop_player(self, player_pos, clock_speed):
 
-        if (player_pos.x <= self.rect.x + c.OBSTACLE_WIDTH and player_pos.x + c.PLAYER_WIDTH >= self.rect.x and player_pos.y - c.PLAYER_HEIGHT * c.PLAYER_SCALE <= self.rect.y + c.OBSTACLE_HEIGHT and player_pos.y - c.PLAYER_HEIGHT * c.PLAYER_SCALE >= self.rect.y):
-            # if player_pos.x + c.PLAYER_WIDTH = 
-            player_pos = pygame.Vector2(c.SCREEN_WIDTH / 2, c.SCREEN_HEIGHT / 2)
+        if (player_pos.x <= self.rect.x + c.OBSTACLE_WIDTH and player_pos.x + c.PLAYER_WIDTH >= self.rect.x and player_pos.y - c.PLAYER_HEIGHT * c.PLAYER_SCALE <= self.rect.y + c.OBSTACLE_HEIGHT and player_pos.y >= self.rect.y):
+            # walk on top
+            if player_pos.y >= self.rect.y: 
+                player_pos.y = self.rect.y
+
+            #get stopped left
+            elif player_pos.x + c.PLAYER_WIDTH >= self.rect.x:
+                player_pos.x = self.rect.x - c.PLAYER_WIDTH
+                # player_pos = pygame.Vector2(c.SCREEN_WIDTH / 2, c.SCREEN_HEIGHT / 2)
             # player_pos.x = self.rect.x
 
         return player_pos
+    
 # instantiate in a loop in main every x seconds
 
 
