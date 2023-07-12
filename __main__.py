@@ -4,7 +4,7 @@ import sqlite3
 import constants as c
 import display
 import player
-import obstacle
+import obstacle as Obstacle
 import physics
 import player_animation as animate
 import ui
@@ -18,8 +18,9 @@ def main():
     clock = pygame.time.Clock()
     show = display.MovingBackground()
     player_sprite = player.Player((0, 255, 255), c.PLAYER_WIDTH, c.PLAYER_HEIGHT)
-    obstacle_sprite = obstacle.Obstacle((150, 75, 0), 5, 5)
-    obstacle_sprite.draw_obstacle(40)
+    obstacle_sprite = Obstacle.Obstacle(c.OBSTACLE_WIDTH, c.OBSTACLE_HEIGHT, 3)
+    obstacles = []
+    obstacle_height_index = 0
 
     # for Animations
     last_update = pygame.time.get_ticks()
@@ -48,20 +49,37 @@ def main():
             if event.type == pygame.QUIT:
                 running = False        
         
-        
-        # draws, gets movement and apply movement
+        # Show and move background
         show.display_background()
         show.move_background(c.BG_SPEED)
+
+        # gets and applies movement
         movement = pygame.key.get_pressed()
         player_pos = player_sprite.move(player_pos, clock_speed, movement)
         gravity.physics(player_pos)
+
+        # Create an obstacle every 2 seconds
+        if (pygame.time.get_ticks() / 10) % 2 == 0:
+            obstacle_height_index += 1
+            if obstacle_height_index >= len(c.OBSTACLE_VECTOR):
+                obstacle_height_index = 0
+            if c.OBSTACLE_VECTOR[obstacle_height_index] != 0:
+                an_obstacle = Obstacle.Obstacle(c.OBSTACLE_WIDTH, c.OBSTACLE_HEIGHT, obstacle_height_index)
+                obstacles.append(an_obstacle)
+
+        # Move and draw every obstacle
+        for obstacle in obstacles:
+            obstacle.move()
+            player_pos = obstacle.stop_player(player_pos, clock_speed)
+            show.draw_obstacle(obstacle)
+
+
+        # Draw player
         show.draw_player(player_pos, frame, image_amount, row_number)
         
-
         # for animations
         current_time = pygame.time.get_ticks()
         frame, last_update = animate.ItterateTimedFrames(current_time, last_update, frame, image_amount)
-        
         user_inter.draw_ui()
                 
         pygame.display.update()

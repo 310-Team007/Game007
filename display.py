@@ -61,3 +61,11 @@ class MovingBackground():
 
         # Shows player sprite & allows animation
         animated.ShowSprite(self, player_pos, frame, image_amount, row_number)
+
+    def draw_obstacle(self, obstacle):
+        # Image is 16 by 16
+        obstacleImage = pygame.image.load("images/metal_blocks.png").convert_alpha()
+        # obstacleSheet = animated.spritesheet(obstacleImage)
+        # obstacle.blit(obstacle, (1, 1), (1, 1, 16, 16))
+
+        pygame.draw.rect(self.screen, c.PINK, obstacle)
