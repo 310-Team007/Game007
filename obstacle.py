@@ -33,7 +33,7 @@ class Obstacle(Sprite):
         if (player_pos.x <= self.rect.x + c.OBSTACLE_WIDTH and player_pos.x + c.PLAYER_WIDTH >= self.rect.x and player_pos.y - c.PLAYER_HEIGHT * c.PLAYER_SCALE <= self.rect.y + c.OBSTACLE_HEIGHT and player_pos.y >= self.rect.y):
             # walk on top
             if player_pos.y >= self.rect.y: 
-                player_pos.y = self.rect.y
+                player_pos.y = self.rect.y - c.OBSTACLE_HEIGHT
 
             #get stopped left
             elif player_pos.x + c.PLAYER_WIDTH >= self.rect.x:
