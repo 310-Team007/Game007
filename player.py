@@ -76,7 +76,7 @@ class  Player(Sprite):
         if movement[pygame.K_d]:
             player_pos.x += 300 * clock_speed
             if player_pos.x >= c.SCREEN_WIDTH:
-                player_pos.x = c.SCREEN_WIDTH - 10
+                player_pos.x = c.SCREEN_WIDTH - c.PLAYER_WIDTH
             # self.show.move_background(5)
             # self.draw_player(player_pos)
 

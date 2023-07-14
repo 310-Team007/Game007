@@ -14,6 +14,7 @@ class Physics():
         # tracker
         self.fall_count = 0
     
+    # def physics(self, player_pos, obstacle_pos):
     def physics(self, player_pos):
         # player_pos.y += min(1, (self.fall_count / c.FPS) * c.GRAVITY)
         
@@ -29,6 +30,7 @@ class Physics():
         # Along with keeping the player from flying away
         if player_pos.y == c.GROUND:
             self.fall_count = 0
-            
+        # elif player_pos.y == obstacle_pos.y - c.OBSTACLE_HEIGHT and player_pos.x <= self.rect.x + (c.OBSTACLE_WIDTH) and player_pos.x + c.PLAYER_WIDTH >= self.rect.x:
+        #     self.fall_count = 0
         else:
             self.fall_count += 1

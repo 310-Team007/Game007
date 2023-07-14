@@ -64,7 +64,11 @@ class MovingBackground():
         # obstacleSheet = animated.spritesheet(obstacleImage)
         # obstacle.blit(obstacle, (1, 1), (1, 1, 16, 16))
         spritesheet = animated.SpriteSheet(obstacleImage)
-        animated.ShowSprite(self, obstacle.rect, 0, 1, 0, spritesheet, 18, 18, 2.3)
+        animated.ShowSprite(self, obstacle.rect, 0, 1, 0, spritesheet, 18, 18, c.OBSTACLE_SCALE)
 
     def DrawEnemy(self, enemy_pos, frame, image_amount, row_number, spritesheet, sprite_width, sprite_height, scale):
         animated.ShowSprite(self, enemy_pos, frame, image_amount, row_number, spritesheet, sprite_width, sprite_height, scale)
+
+    # Debug stats
+    def draw_stats(player_pos):
+        pass
