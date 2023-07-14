@@ -32,10 +32,14 @@ class Obstacle(Sprite):
     def stop_player(self, player_pos, movement, gravity):
 
         if (player_pos.x <= self.rect.x + (c.OBSTACLE_WIDTH) and player_pos.x + c.PLAYER_WIDTH >= self.rect.x and player_pos.y - c.PLAYER_HEIGHT * c.PLAYER_SCALE <= self.rect.y + c.OBSTACLE_HEIGHT and player_pos.y >= self.rect.y - c.OBSTACLE_HEIGHT) and not movement[pygame.K_s]:
+            if player_pos.y != self.rect.y - c.OBSTACLE_HEIGHT:
+                player_pos.x = self.rect.x - c.PLAYER_WIDTH
             # walk on top
-            if player_pos.y >= self.rect.y - c.OBSTACLE_HEIGHT: 
+            elif player_pos.y >= self.rect.y - c.OBSTACLE_HEIGHT: 
                 player_pos.y = self.rect.y - c.OBSTACLE_HEIGHT
                 gravity.setFallCount(0)
+
+
 
             #get stopped left
             # elif player_pos.x + c.PLAYER_WIDTH >= self.rect.x:
