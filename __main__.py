@@ -8,7 +8,7 @@ import obstacle as Obstacle
 import physics
 import player_animation as animate
 import ui
-import enemy
+import enemies.enemy as enemy
 
 #for animation changes
 image_amount = 4
