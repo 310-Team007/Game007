@@ -157,7 +157,6 @@ def main():
             grunt_enemy = grunt.Grunt(c.PLAYER_WIDTH, c.PLAYER_HEIGHT)
             grunts.append(grunt_enemy)
             enemy_spawn_timer = current_time
-            print("+1 enemy")
 
         for grunt_enemy in grunts:
             if (grunt_enemy.alive):
