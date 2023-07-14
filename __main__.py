@@ -148,7 +148,7 @@ def main():
         if bullet_sprite.bullet_alive == True:
             show.draw_bullet(bullet_sprite.bullet)
             bullet_sprite.bullet = bullet_sprite.player_bullet_move(bullet_sprite.bullet, clock_speed)
-            bullet_sprite.bullet_collide(grunt_enemy.rect, player_pos)
+            
         
         # Enemy stuff
         # grunt spawn current_time - last_update >= animation_cooldown
@@ -160,9 +160,11 @@ def main():
             print("+1 enemy")
 
         for grunt_enemy in grunts:
-            if (grunt_enemy.alive):
+            if (grunt_enemy.alive == True):
                 show.DrawEnemy(grunt_enemy.rect, enemy_frame, enemy_image_amount, enemy_row_number, grunt.spritesheet_grunt, sprite_width = 128, sprite_height = 128, scale = 1.3)
                 grunt_enemy.rect = grunt_enemy.move(grunt_enemy.rect, clock_speed)
+                bullet_sprite.bullet_collide(grunt_enemy.rect, player_pos, grunt_enemy)
+                grunt_enemy.die()
 
 
         # for animations
