@@ -10,7 +10,7 @@ Jacob Gunderson
 Sprite = pygame.sprite.Sprite 
 class Enemy(Sprite):
     def __init__(self, width, height):
-        self.health = int
+        self.health = 1
         self.alive = True
         
         Sprite.__init__(self)

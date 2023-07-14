@@ -25,3 +25,12 @@ class Grunt(Enemy):
 
     def get_status():
         Enemy.get_alive(Enemy.__init__)
+    
+    def get_shot(self):
+        self.health -= 1
+        print(self.health)
+
+    def die(self):
+        if self.health <= 0:
+            self.alive = False
+            print(self.alive)
