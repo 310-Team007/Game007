@@ -18,4 +18,5 @@ class Grunt(Enemy):
 
     def move(self, enemy_pos, clock_speed):
         enemy_pos.x -= 300 * clock_speed
+        return enemy_pos
     
