@@ -8,7 +8,7 @@ import obstacle as Obstacle
 import physics
 import player_animation as animate
 import ui
-import enemies.enemy as enemy
+import enemies.enemy_grunt as grunt
 
 #for animation changes
 image_amount = 4
@@ -19,6 +19,7 @@ def main():
     clock = pygame.time.Clock()
     show = display.MovingBackground()
     player_sprite = player.Player(c.PLAYER_WIDTH, c.PLAYER_HEIGHT)
+    grunt_sprite = grunt.Grunt(c.PLAYER_WIDTH, c.PLAYER_HEIGHT)
     obstacle_sprite = Obstacle.Obstacle(c.OBSTACLE_WIDTH, c.OBSTACLE_HEIGHT, 3)
     obstacles = []
     obstacle_height_index = 0
@@ -108,6 +109,7 @@ def main():
         # gets and applies movement
         movement = pygame.key.get_pressed()
         player_pos = player_sprite.move(player_pos, clock_speed, movement)
+        enemy_pos = grunt_sprite.move(enemy_pos, clock_speed)
         gravity.physics(player_pos)
 
         # Create an obstacle every 2 seconds
@@ -131,7 +133,7 @@ def main():
         show.draw_player(player_pos, frame, image_amount, row_number)
         
         # Enemy stuff
-        show.DrawEnemy(enemy_pos, enemy_frame, enemy_image_amount, enemy_row_number, enemy.spritesheet_grunt, sprite_width = 126, sprite_height = 126, scale = 1)
+        show.DrawEnemy(enemy_pos, enemy_frame, enemy_image_amount, enemy_row_number, grunt.spritesheet_grunt, sprite_width = 126, sprite_height = 126, scale = 1)
 
         # for animations
         current_time = pygame.time.get_ticks()
