@@ -34,3 +34,6 @@ class Physics():
         #     self.fall_count = 0
         else:
             self.fall_count += 1
+
+    def setFallCount(self, fall_count):
+         self.fall_count = fall_count

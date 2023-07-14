@@ -122,7 +122,7 @@ def main():
         # Move and draw every obstacle
         for obstacle in obstacles:
             obstacle.move()
-            player_pos = obstacle.stop_player(player_pos, clock_speed, movement)
+            player_pos = obstacle.stop_player(player_pos, movement, gravity)
             show.draw_obstacle(obstacle)
             # gravity.physics(player_pos, obstacle.rect)
 
