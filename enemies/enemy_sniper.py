@@ -5,7 +5,7 @@ import player_animation as animate
 # spritesheet image
 enemy_image_sniper = pygame.image.load('images/craftpix-soldiers/PSD/Soldier_3_Spritelist.png').convert_alpha()
 # Sniper: 2944 x 1536px
-# frame size: 126 x 126px ? (Dosen't start on row 0)
+# frame size: 128 x 128px ? (Dosen't start on row 0)
 spritesheet_sniper = animate.SpriteSheet(enemy_image_sniper)
 
 Sprite = pygame.sprite.Sprite 

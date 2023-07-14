@@ -10,12 +10,14 @@ class SpriteSheet():
         self.sheet = image
 
     # gets a frame along a sprite sheet
-    def get_image(self, frame, row, width, height, scale, color):
+    def get_image(self, frame, row, width, height, scale, color, mirror):
         image = pygame.Surface((width, height)).convert_alpha()
         image.blit(self.sheet, (0, 0), ((frame * width), (row * height), width, height))
         image = pygame.transform.scale(image, (width * scale, height * scale))
+        if (mirror):
+            image = pygame.transform.flip(image, True, False)
         image.set_colorkey(color)
-
+        
         return image
         
 
@@ -26,15 +28,18 @@ spritesheet_image = pygame.image.load('images/Agent_SpriteSheet_1.png').convert_
 spritesheet = SpriteSheet(spritesheet_image)
 
 # creates a list of images from any row in the spritesheet
-def GetSpriteSeries(image_amount, row_number, spritesheet, sprite_width, sprite_height, scale):
+def GetSpriteSeries(image_amount, row_number, spritesheet, sprite_width, sprite_height, scale, mirror):
     animation_list = []
     for x in range(image_amount):
-        animation_list.append(spritesheet.get_image(x, row_number, sprite_width, sprite_height, scale, c.PINK))
+        if (mirror):
+            animation_list.append(spritesheet.get_image(x, row_number, sprite_width, sprite_height, scale, c.PINK, True))
+        else:
+            animation_list.append(spritesheet.get_image(x, row_number, sprite_width, sprite_height, scale, c.PINK, False))
 
     return animation_list
 
-def ShowSprite(self, player_pos, frame, image_amount = 4, row_number = 1, spritesheet = spritesheet, sprite_width = 32, sprite_height = 32, scale = c.PLAYER_SCALE):
-    idleplayer = GetSpriteSeries(image_amount, row_number, spritesheet, sprite_width, sprite_height, scale)
+def ShowSprite(self, player_pos, frame, image_amount = 4, row_number = 1, spritesheet = spritesheet, sprite_width = 32, sprite_height = 32, scale = c.PLAYER_SCALE, mirror = False):
+    idleplayer = GetSpriteSeries(image_amount, row_number, spritesheet, sprite_width, sprite_height, scale, mirror)
 
     # prevents out of range error
     if(frame > len(idleplayer) - 1):

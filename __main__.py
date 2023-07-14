@@ -26,10 +26,11 @@ def main():
 
     # for Animations
     last_update = pygame.time.get_ticks()
+    enemy_last_update = pygame.time.get_ticks()
     frame = 0
     enemy_frame = 0
     enemy_image_amount = 7
-    enemy_row_number = 1
+    enemy_row_number = 0
     
     # see Pygame tutorial
     player_pos = pygame.Vector2(c.SCREEN_WIDTH / 2, c.GROUND)
@@ -133,12 +134,15 @@ def main():
         show.draw_player(player_pos, frame, image_amount, row_number)
         
         # Enemy stuff
-        show.DrawEnemy(enemy_pos, enemy_frame, enemy_image_amount, enemy_row_number, grunt.spritesheet_grunt, sprite_width = 126, sprite_height = 126, scale = 1)
+        show.DrawEnemy(enemy_pos, enemy_frame, enemy_image_amount, enemy_row_number, grunt.spritesheet_grunt, sprite_width = 128, sprite_height = 128, scale = 1.3)
 
         # for animations
         current_time = pygame.time.get_ticks()
         frame, last_update = animate.ItterateTimedFrames(current_time, last_update, frame, image_amount)
+        enemy_frame, enemy_last_update  = animate.ItterateTimedFrames(current_time, enemy_last_update, enemy_frame, enemy_image_amount)
         user_inter.draw_ui()
+
+        
                 
         pygame.display.update()
 

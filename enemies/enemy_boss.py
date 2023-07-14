@@ -5,7 +5,7 @@ import player_animation as animate
 # spritesheet image
 enemy_image_boss = pygame.image.load('images/craftpix-soldiers/PSD/Soldier_2_Spritelist.png').convert_alpha()
 # Boss: 2432 x 1280px
-# frame size: 126 x 126px ?
+# frame size: 128 x 128px ?
 spritesheet_boss = animate.SpriteSheet(enemy_image_boss) 
 
 Sprite = pygame.sprite.Sprite 
