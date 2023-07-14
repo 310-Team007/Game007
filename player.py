@@ -4,6 +4,7 @@ import __main__
 #import display
 
 import constants as c
+import bullet
 
 Sprite = pygame.sprite.Sprite 
 
@@ -92,10 +93,12 @@ class  Player(Sprite):
     def pickupGun(location):
         pass
 
-    def useGun():
-
-
+    def useGun(self, movement, bullet):
+        if movement[pygame.K_SPACE]:
+            bullet.set_alive()
+                
+                
         # walk shoot
         __main__.image_amount = 2
         __main__.row_number = 8
-        pass
+        

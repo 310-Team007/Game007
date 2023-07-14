@@ -9,6 +9,7 @@ import physics
 import player_animation as animate
 import ui
 import enemies.enemy as enemy
+import bullet
 
 #for animation changes
 image_amount = 4
@@ -20,6 +21,7 @@ def main():
     show = display.MovingBackground()
     player_sprite = player.Player(c.PLAYER_WIDTH, c.PLAYER_HEIGHT)
     obstacle_sprite = Obstacle.Obstacle(c.OBSTACLE_WIDTH, c.OBSTACLE_HEIGHT, 3)
+    
     obstacles = []
     obstacle_height_index = 0
 
@@ -43,7 +45,9 @@ def main():
     conn = sqlite3.connect("database/game_data.db")
     mod_db = conn.cursor()
     
-    # draws player
+    # bullet
+    bullet_sprite = bullet.Bullets(player_pos, c.BULLET_WIDTH, c.BULLET_HEIGHT)
+    
     
     # draws a screen to get player name input 
     user_input = "" 
@@ -129,6 +133,14 @@ def main():
 
         # Draw player
         show.draw_player(player_pos, frame, image_amount, row_number)
+        
+        # Draw bullet
+        player_sprite.useGun(movement, bullet_sprite)
+        
+        if bullet_sprite.bullet_alive == True:
+            show.draw_bullet(bullet_sprite.bullet)
+            bullet_sprite.bullet = bullet_sprite.player_bullet_move(bullet_sprite.bullet, clock_speed)
+            bullet_sprite.bullet_collide(enemy_pos, player_pos)
         
         # Enemy stuff
         show.DrawEnemy(enemy_pos, enemy_frame, enemy_image_amount, enemy_row_number, enemy.spritesheet_grunt, sprite_width = 126, sprite_height = 126, scale = 1)
