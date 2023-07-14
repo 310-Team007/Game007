@@ -31,7 +31,7 @@ class Bullets(pygame.sprite.Sprite):
             print("Miss")
         
     def set_alive(self, player_pos):
-        self.bullet.left = player_pos.x + c.PLAYER_WIDTH
+        self.bullet.left = player_pos.x
         self.bullet_alive = True
         
     def set_dead(self, player_pos):
