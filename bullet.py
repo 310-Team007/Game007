@@ -15,6 +15,11 @@ class Bullets(pygame.sprite.Sprite):
         
         return bullet
     
+    def enemy_bullet_move(self, bullet, clock_speed):
+        bullet = bullet.move(-600 * clock_speed, 0)
+        
+        return bullet
+    
     def bullet_collide(self, character_pos, player_pos, character):
         if (self.bullet.left <= character_pos.x + (c.PLAYER_WIDTH) and self.bullet.left >= character_pos.x and self.bullet.top >= character_pos.y - c.PLAYER_HEIGHT * c.PLAYER_SCALE and self.bullet.top + c.BULLET_HEIGHT <= character_pos.y):
             self.set_dead(player_pos)
@@ -25,13 +30,13 @@ class Bullets(pygame.sprite.Sprite):
             self.set_dead(player_pos)
             print("Miss")
         
-    def set_alive(self):
+    def set_alive(self, player_pos):
+        self.bullet.left = player_pos.x + c.PLAYER_WIDTH
         self.bullet_alive = True
         
     def set_dead(self, player_pos):
         self.bullet_alive = False
-        self.bullet.left = player_pos.x + c.PLAYER_WIDTH
-        self.bullet.top = player_pos.y - (c.PLAYER_HEIGHT * c.PLAYER_SCALE) / 2
+        self.bullet.left = 0
 
         
     

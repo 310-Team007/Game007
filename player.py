@@ -93,9 +93,9 @@ class  Player(Sprite):
     def pickupGun(location):
         pass
 
-    def useGun(self, movement, bullet):
+    def useGun(self, movement, bullet, player_pos):
         if movement[pygame.K_SPACE]:
-            bullet.set_alive()
+            bullet.set_alive(player_pos)
                 
                 
         # walk shoot

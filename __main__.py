@@ -54,7 +54,8 @@ def main():
     mod_db = conn.cursor()
     
     # bullet
-    bullet_sprite = bullet.Bullets(player_pos, c.BULLET_WIDTH, c.BULLET_HEIGHT)
+    player_bullet_sprite = bullet.Bullets(player_pos, c.BULLET_WIDTH, c.BULLET_HEIGHT)
+    enemy_bullet_sprite = bullet.Bullets(player_pos, c.BULLET_WIDTH, c.BULLET_HEIGHT)
     
     
     # draws a screen to get player name input 
@@ -143,11 +144,15 @@ def main():
         show.draw_player(player_pos, frame, image_amount, row_number)
         
         # Draw bullet
-        player_sprite.useGun(movement, bullet_sprite)
+        player_sprite.useGun(movement, player_bullet_sprite, player_pos)
         
-        if bullet_sprite.bullet_alive == True:
-            show.draw_bullet(bullet_sprite.bullet)
-            bullet_sprite.bullet = bullet_sprite.player_bullet_move(bullet_sprite.bullet, clock_speed)
+        if player_bullet_sprite.bullet_alive == True:
+            show.draw_bullet(player_bullet_sprite.bullet)
+            player_bullet_sprite.bullet = player_bullet_sprite.player_bullet_move(player_bullet_sprite.bullet, clock_speed)
+
+        if enemy_bullet_sprite.bullet_alive == True:
+            show.draw_bullet(enemy_bullet_sprite.bullet)
+            enemy_bullet_sprite.bullet = enemy_bullet_sprite.enemy_bullet_move(enemy_bullet_sprite.bullet, clock_speed)
             
         
         # Enemy stuff
@@ -163,7 +168,7 @@ def main():
             if (grunt_enemy.alive == True):
                 show.DrawEnemy(grunt_enemy.rect, enemy_frame, enemy_image_amount, enemy_row_number, grunt.spritesheet_grunt, sprite_width = 128, sprite_height = 128, scale = 1.3)
                 grunt_enemy.rect = grunt_enemy.move(grunt_enemy.rect, clock_speed)
-                bullet_sprite.bullet_collide(grunt_enemy.rect, player_pos, grunt_enemy)
+                player_bullet_sprite.bullet_collide(grunt_enemy.rect, player_pos, grunt_enemy)
                 grunt_enemy.die()
 
 
