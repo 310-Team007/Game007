@@ -8,7 +8,7 @@ import obstacle as Obstacle
 import physics
 import player_animation as animate
 import ui
-import enemies.enemy as enemy
+# import enemies.enemy_grunt as grunt
 
 #for animation changes
 image_amount = 4
@@ -130,7 +130,7 @@ def main():
         show.draw_player(player_pos, frame, image_amount, row_number)
         
         # Enemy stuff
-        show.DrawEnemy(enemy_pos, enemy_frame, enemy_image_amount, enemy_row_number, enemy.spritesheet_grunt, sprite_width = 126, sprite_height = 126, scale = 1)
+        # show.DrawEnemy(enemy_pos, enemy_frame, enemy_image_amount, enemy_row_number, grunt.spritesheet_grunt, sprite_width = 126, sprite_height = 126, scale = 1)
 
         # for animations
         current_time = pygame.time.get_ticks()
