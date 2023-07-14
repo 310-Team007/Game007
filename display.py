@@ -72,3 +72,6 @@ class MovingBackground():
     # Debug stats
     def draw_stats(player_pos):
         pass
+    
+    def draw_bullet(self, bullet):
+        pygame.draw.rect(self.screen, (255, 255, 0), bullet, 5)
