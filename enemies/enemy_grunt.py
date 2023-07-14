@@ -22,3 +22,6 @@ class Grunt(Enemy):
     
     def grunt_shoot():
         Enemy.EnemyShoot()
+
+    def get_status():
+        Enemy.get_alive(Enemy.__init__)

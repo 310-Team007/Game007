@@ -16,25 +16,31 @@ row_number = 1
 
 def main():
     pygame.init()
+    # general variables 
     clock = pygame.time.Clock()
     show = display.MovingBackground()
     player_sprite = player.Player(c.PLAYER_WIDTH, c.PLAYER_HEIGHT)
-    grunt_sprite = grunt.Grunt(c.PLAYER_WIDTH, c.PLAYER_HEIGHT)
+
+    grunt_enemy = grunt.Grunt(c.PLAYER_WIDTH, c.PLAYER_HEIGHT)
+    grunts = []
+    grunt_spawn_cooldown = 5000
+    enemy_spawn_timer = pygame.time.get_ticks()
+
     obstacle_sprite = Obstacle.Obstacle(c.OBSTACLE_WIDTH, c.OBSTACLE_HEIGHT, 3)
     obstacles = []
     obstacle_height_index = 0
 
     # for Animations
     last_update = pygame.time.get_ticks()
-    enemy_last_update = pygame.time.get_ticks()
     frame = 0
+
+    enemy_last_update = pygame.time.get_ticks()
     enemy_frame = 0
     enemy_image_amount = 7
     enemy_row_number = 0
     
-    # see Pygame tutorial
+    # for positions and movement
     player_pos = pygame.Vector2(c.SCREEN_WIDTH / 2, c.GROUND)
-    enemy_pos = pygame.Vector2(c.SCREEN_WIDTH, c.GROUND)
     clock_speed = clock.tick(c.FPS) / 1000
     
     gravity = physics.Physics()
@@ -44,8 +50,6 @@ def main():
     # connects to database and var to modify database
     conn = sqlite3.connect("database/game_data.db")
     mod_db = conn.cursor()
-    
-    # draws player
     
     # draws a screen to get player name input 
     user_input = "" 
@@ -110,7 +114,6 @@ def main():
         # gets and applies movement
         movement = pygame.key.get_pressed()
         player_pos = player_sprite.move(player_pos, clock_speed, movement)
-        enemy_pos = grunt_sprite.move(enemy_pos, clock_speed)
         gravity.physics(player_pos)
 
         # Create an obstacle every 2 seconds
@@ -134,10 +137,21 @@ def main():
         show.draw_player(player_pos, frame, image_amount, row_number)
         
         # Enemy stuff
-        show.DrawEnemy(enemy_pos, enemy_frame, enemy_image_amount, enemy_row_number, grunt.spritesheet_grunt, sprite_width = 128, sprite_height = 128, scale = 1.3)
+        # grunt spawn current_time - last_update >= animation_cooldown
+        current_time = pygame.time.get_ticks()
+        if(current_time - enemy_spawn_timer >= grunt_spawn_cooldown):
+            grunt_enemy = grunt.Grunt(c.PLAYER_WIDTH, c.PLAYER_HEIGHT)
+            grunts.append(grunt_enemy)
+            enemy_spawn_timer = current_time
+            print("+1 enemy")
+
+        for grunt_enemy in grunts:
+            if (grunt_enemy.alive):
+                show.DrawEnemy(grunt_enemy.rect, enemy_frame, enemy_image_amount, enemy_row_number, grunt.spritesheet_grunt, sprite_width = 128, sprite_height = 128, scale = 1.3)
+                grunt_enemy.rect = grunt_enemy.move(grunt_enemy.rect, clock_speed)
+
 
         # for animations
-        current_time = pygame.time.get_ticks()
         frame, last_update = animate.ItterateTimedFrames(current_time, last_update, frame, image_amount)
         enemy_frame, enemy_last_update  = animate.ItterateTimedFrames(current_time, enemy_last_update, enemy_frame, enemy_image_amount)
         user_inter.draw_ui()

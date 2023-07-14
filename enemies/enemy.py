@@ -1,4 +1,5 @@
 import pygame
+import constants as c
 
 """
 Authors: 
@@ -18,9 +19,17 @@ class Enemy(Sprite):
         # create a rectangle with dimensions of image
         # must update position with rect.x and rect.y
         self.rect = self.image.get_rect()
+        self.rect.x = c.SCREEN_WIDTH
+        self.rect.y = c.GROUND
 
     def set_health(self, health):
         self.health = health
+
+    def set_alive(self, alive):
+        self.alive = alive
+
+    def get_alive(self):
+        return self.alive
 
     def EnemyShoot():
         pass
