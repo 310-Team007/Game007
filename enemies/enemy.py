@@ -31,8 +31,8 @@ class Enemy(Sprite):
     def get_alive(self):
         return self.alive
 
-    def EnemyShoot():
+    def EnemyShoot(self):
         pass
 
-    def EnemyMelee():
+    def EnemyMelee(self):
         pass
