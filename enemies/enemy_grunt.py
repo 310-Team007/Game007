@@ -15,17 +15,17 @@ Sprite = pygame.sprite.Sprite
 # spawns to the right and stands still (carried off the screen by moving background)
 # shoots to the left (1 damage)
 class Grunt(Enemy):
-    Enemy.set_health(Enemy.__init__, 1)
+    Enemy.set_health(Enemy.__init__, 10)
 
     def move(self, enemy_pos, clock_speed):
         enemy_pos.x -= 300 * clock_speed
         return enemy_pos
     
-    def grunt_shoot(self):
-        __main__.enemy_image_amount = 4
-        __main__.enemy_row_number = 3
-        print("Shooting")
-        Enemy.EnemyShoot(self)
+    def grunt_shoot(self, bullet):
+         bullet.set_alive(self.rect.x, self.rect.y)
+
+         return bullet
+        # bullet.enemy_bullet_move(bullet, clock_speed)
 
     def get_status():
         Enemy.get_alive(Enemy.__init__)

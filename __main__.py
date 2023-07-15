@@ -175,7 +175,8 @@ def main():
                 # enemy shooting back
                 bullet_time = pygame.time.get_ticks()
                 if(bullet_time - enemy_attack_timer >= grunt_shoot_cooldown):
-                    grunt_enemy.grunt_shoot()
+                    # player_sprite.useGun(movement, player_bullet_sprite, player_pos)
+                    grunt_enemy.grunt_shoot(enemy_bullet_sprite)
                     enemy_attack_timer = bullet_time
 
 

@@ -95,9 +95,12 @@ class  Player(Sprite):
 
     def useGun(self, movement, bullet, player_pos):
         if movement[pygame.K_SPACE]:
-            bullet.set_alive(player_pos)
+            bullet.set_alive(player_pos.x, player_pos.y)
                 
-                
+    def getShot(self):
+        self.health -= 1
+        print(self.health)
+        
         # walk shoot
         __main__.image_amount = 2
         __main__.row_number = 8
