@@ -1,6 +1,7 @@
 import pygame
 from enemies.enemy import Enemy
 import player_animation as animate
+import __main__
 
 # spritesheet image & animation stuff
 enemy_image_grunt = pygame.image.load('images/craftpix-soldiers/PSD/Soldier_1_Spritelist.png').convert_alpha()
@@ -20,8 +21,11 @@ class Grunt(Enemy):
         enemy_pos.x -= 300 * clock_speed
         return enemy_pos
     
-    def grunt_shoot():
-        Enemy.EnemyShoot()
+    def grunt_shoot(self):
+        __main__.enemy_image_amount = 4
+        __main__.enemy_row_number = 3
+        print("Shooting")
+        Enemy.EnemyShoot(self)
 
     def get_status():
         Enemy.get_alive(Enemy.__init__)

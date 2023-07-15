@@ -25,11 +25,9 @@ def main():
     grunt_enemy = grunt.Grunt(c.PLAYER_WIDTH, c.PLAYER_HEIGHT)
     grunts = []
     grunt_spawn_cooldown = 5000
-    grunt_shoot_cooldown = 1000
+    grunt_shoot_cooldown = 2000
     enemy_spawn_timer = pygame.time.get_ticks()
     enemy_attack_timer = pygame.time.get_ticks()
-
-    obstacle_sprite = Obstacle.Obstacle(c.OBSTACLE_WIDTH, c.OBSTACLE_HEIGHT, 3)
     
     obstacles = []
     obstacle_height_index = 0
@@ -166,6 +164,7 @@ def main():
             grunts.append(grunt_enemy)
             enemy_spawn_timer = current_time
 
+        # allows for multiple enemies at onces
         for grunt_enemy in grunts:
             if (grunt_enemy.alive == True):
                 show.DrawEnemy(grunt_enemy.rect, enemy_frame, enemy_image_amount, enemy_row_number, grunt.spritesheet_grunt, sprite_width = 128, sprite_height = 128, scale = 1.3)
@@ -173,9 +172,11 @@ def main():
                 player_bullet_sprite.bullet_collide(grunt_enemy.rect, player_pos, grunt_enemy)
                 grunt_enemy.die(user_inter)
 
+                # enemy shooting back
                 bullet_time = pygame.time.get_ticks()
                 if(bullet_time - enemy_attack_timer >= grunt_shoot_cooldown):
                     grunt_enemy.grunt_shoot()
+                    enemy_attack_timer = bullet_time
 
 
         # for animations
