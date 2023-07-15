@@ -28,8 +28,7 @@ class UI():
         # getting player health
         self.player_health = player_info
         
-        # temp score TODO remove once real score is created
-        self.score = 100
+        self.score = 0
     
     def draw_ui(self):
         """
@@ -76,7 +75,6 @@ class UI():
         """
         Create simply ui text for player score 
         """
-        # TODO add score from player class later
         score_text = "Score: " + str(self.score)
         
         score_img = self.text_font.render(score_text, True, self.text_color)
