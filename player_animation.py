@@ -44,7 +44,11 @@ def ShowSprite(self, player_pos, frame, image_amount = 4, row_number = 1, sprite
     # prevents out of range error
     if(frame > len(idleplayer) - 1):
         frame = 0
-    self.screen.blit(idleplayer[frame], (player_pos.x - (sprite_width * scale), player_pos.y - (sprite_height * scale)))
+
+    if (mirror):
+        self.screen.blit(idleplayer[frame], (player_pos.x - (sprite_width * scale) + sprite_width, player_pos.y - (sprite_height * scale)))
+    else:
+        self.screen.blit(idleplayer[frame], (player_pos.x - (sprite_width * scale), player_pos.y - (sprite_height * scale)))
 
 # Agent spritesheet GetSpriteSeries(image_amount, row_number) inputs
 # idle: (1, 0)
