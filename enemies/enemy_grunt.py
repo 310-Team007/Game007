@@ -30,7 +30,9 @@ class Grunt(Enemy):
         self.health -= 1
         print(self.health)
 
-    def die(self):
+    def die(self, user_inter):
         if self.health <= 0:
             self.alive = False
             print(self.alive)
+            
+            user_inter.score += 10

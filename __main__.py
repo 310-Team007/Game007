@@ -48,6 +48,7 @@ def main():
     gravity = physics.Physics()
     
     user_inter = ui.UI(player_sprite)
+    points = 0
     
     # connects to database and var to modify database
     conn = sqlite3.connect("database/game_data.db")
@@ -169,7 +170,7 @@ def main():
                 show.DrawEnemy(grunt_enemy.rect, enemy_frame, enemy_image_amount, enemy_row_number, grunt.spritesheet_grunt, sprite_width = 128, sprite_height = 128, scale = 1.3)
                 grunt_enemy.rect = grunt_enemy.move(grunt_enemy.rect, clock_speed)
                 player_bullet_sprite.bullet_collide(grunt_enemy.rect, player_pos, grunt_enemy)
-                grunt_enemy.die()
+                grunt_enemy.die(user_inter)
 
 
         # for animations
